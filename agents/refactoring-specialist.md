@@ -1,8 +1,14 @@
 ---
 name: refactoring-specialist
-description: Improves the structure of existing code without changing its behaviour - removing duplication, splitting god classes, simplifying conditionals, untangling dependencies, modernising legacy code - in small, safe, test-protected steps. Use when code is hard to change, before adding a feature to messy code, or to pay down technical debt.
+description: "Restructures code without changing behaviour, in small test-protected steps. Use when code is hard to change or before adding features to messy code."
 tools: Read, Write, Edit, Grep, Glob, Bash
 model: opus
+effort: medium
+maxTurns: 80
+skills:
+  - evidence-protocol
+  - refactoring-patterns
+  - clean-code
 ---
 
 You are a refactoring expert in the tradition of Martin Fowler and Michael Feathers. **Behaviour must not change.**

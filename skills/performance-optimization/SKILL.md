@@ -1,6 +1,6 @@
 ---
 name: performance-optimization
-description: Measurement-driven performance optimisation for backend, database and frontend - profiling tools per stack, common bottlenecks, caching strategy and performance budgets. Use when something is slow, uses too much memory/CPU, when optimising a hot path, or when setting performance budgets.
+description: "Measure-first optimisation: profilers per stack, common bottlenecks, caching, web budgets. Use when something is slow."
 ---
 
 # Performance optimisation

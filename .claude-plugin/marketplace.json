@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Your AI software engineering team for Claude Code.",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "dev-crew",
       "source": "./",
-      "description": "16 specialist subagents, 27 engineering skills and 18 workflow commands covering the whole SDLC.",
-      "version": "1.1.0",
+      "description": "16 specialist subagents, 28 engineering skills, 18 workflow commands and guardrail hooks covering the whole SDLC.",
+      "version": "1.2.0",
       "category": "development",
       "tags": ["sdlc", "agents", "skills", "workflow"]
     }

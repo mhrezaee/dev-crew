@@ -14,4 +14,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python scripts/validate.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Structure, frontmatter and token budget
+        run: python scripts/validate.py
+      - name: Guardrail hook tests
+        run: node --test "hooks/test/*.test.js"

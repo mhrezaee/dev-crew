@@ -1,6 +1,6 @@
 ---
 name: writing-tests
-description: Conventions and patterns for writing high-value automated tests - test pyramid, naming, AAA structure, test data builders, mocking boundaries, integration tests with real dependencies (Testcontainers), and avoiding flaky tests. Use whenever writing, reviewing or fixing tests in any language.
+description: "Test design: pyramid, AAA, naming, builders, mocking boundaries, Testcontainers, flakiness. Use when writing or fixing tests."
 ---
 
 # Writing good tests

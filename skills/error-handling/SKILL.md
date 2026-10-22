@@ -1,6 +1,6 @@
 ---
 name: error-handling
-description: Patterns for robust error handling and resilience - exception vs result types, error boundaries, retries with backoff and jitter, timeouts, circuit breakers, idempotency, graceful degradation and user-facing error messages. Use when writing code that calls external systems, designing error flows, or fixing swallowed/unclear errors.
+description: "Error classification, retries with backoff, timeouts, circuit breakers, idempotency, user-facing messages. Use for code calling external systems."
 ---
 
 # Error handling & resilience

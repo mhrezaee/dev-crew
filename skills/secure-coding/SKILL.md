@@ -1,6 +1,6 @@
 ---
 name: secure-coding
-description: Secure coding rules and an OWASP Top 10 / API Top 10 checklist with safe patterns per vulnerability class - injection, auth, access control, secrets, XSS, SSRF, deserialisation, crypto, file upload. Use when writing or reviewing code that handles user input, authentication, authorisation, secrets, files, URLs, payments or personal data.
+description: "OWASP-based secure coding: injection, authZ/IDOR, XSS, SSRF, secrets, crypto, uploads. Use for code handling input, auth, secrets, files or PII."
 ---
 
 # Secure coding

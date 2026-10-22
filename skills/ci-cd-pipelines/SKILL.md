@@ -1,6 +1,6 @@
 ---
 name: ci-cd-pipelines
-description: Design, write, debug and harden CI/CD pipelines (GitHub Actions, Azure DevOps, GitLab CI) - stage layout, caching, test reporting, artifact promotion, environment approvals, secrets and supply-chain security. Use when creating or fixing a pipeline, a build fails only in CI, or when speeding up or securing CI.
+description: "CI/CD stage layout, caching, artifact promotion and supply-chain security; debugging red pipelines. Use for pipeline work."
 ---
 
 # CI/CD pipelines

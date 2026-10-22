@@ -1,7 +1,7 @@
 {
   "name": "dev-crew",
-  "version": "1.1.0",
-  "description": "A full software engineering team for Claude Code: 16 specialist subagents, 27 engineering skills and 18 workflow commands covering the whole SDLC - from requirements to release.",
+  "version": "1.2.0",
+  "description": "A full software engineering team for Claude Code: 16 specialist subagents, 28 engineering skills, 18 workflow commands and safety guardrail hooks covering the whole SDLC - from requirements to release.",
   "author": {
     "name": "Hadi Rezaee",
     "url": "https://github.com/mhrezaee"

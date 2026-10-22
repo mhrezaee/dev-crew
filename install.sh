@@ -13,10 +13,9 @@ else
 fi
 
 echo "Installing dev-crew into ${DEST}"
-mkdir -p "${DEST}/agents" "${DEST}/skills" "${DEST}/commands" "${DEST}/templates/dev-crew"
+mkdir -p "${DEST}/agents" "${DEST}/skills" "${DEST}/templates/dev-crew"
 
 cp "${SRC}"/agents/*.md "${DEST}/agents/"
-cp "${SRC}"/commands/*.md "${DEST}/commands/"
 for skill in "${SRC}"/skills/*/; do
   name="$(basename "${skill}")"
   mkdir -p "${DEST}/skills/${name}"
@@ -24,5 +23,6 @@ for skill in "${SRC}"/skills/*/; do
 done
 cp "${SRC}/templates/CLAUDE.md" "${DEST}/templates/dev-crew/CLAUDE.md"
 
-echo "Done: $(ls "${SRC}"/agents/*.md | wc -l | tr -d ' ') agents, $(ls -d "${SRC}"/skills/*/ | wc -l | tr -d ' ') skills, $(ls "${SRC}"/commands/*.md | wc -l | tr -d ' ') commands."
+echo "Done: $(ls "${SRC}"/agents/*.md | wc -l | tr -d ' ') agents and $(ls -d "${SRC}"/skills/*/ | wc -l | tr -d ' ') skills (including workflow commands)."
+echo "Note: guardrail hooks are only active when installed as a plugin (/plugin install dev-crew@dev-crew)."
 echo "Restart Claude Code, then try: /onboard"

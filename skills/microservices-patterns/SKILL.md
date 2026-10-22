@@ -1,6 +1,6 @@
 ---
 name: microservices-patterns
-description: Patterns for distributed and event-driven systems - service decomposition, API gateway/BFF, sync vs async communication, sagas (orchestration/choreography), transactional outbox/inbox, CQRS read models, event sourcing, idempotent consumers, service discovery, resilience, versioning and data ownership. Use when designing or reviewing microservices, extracting a service from a monolith, or building event-driven integrations.
+description: "Distributed and event-driven patterns: sagas, outbox/inbox, idempotent consumers, gateways, versioning. Use for microservices or event integrations."
 ---
 
 # Microservices & event-driven patterns

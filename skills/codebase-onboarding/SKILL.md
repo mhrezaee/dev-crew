@@ -1,6 +1,6 @@
 ---
 name: codebase-onboarding
-description: Rapidly understand an unfamiliar codebase and produce an onboarding map - tech stack, how to build/run/test, architecture, key flows, conventions, and where to make common changes. Use when joining a project, opening a new repo, before a large change in unknown code, or when the user asks "explain this codebase" or "how does X work".
+description: "Map an unfamiliar repo: stack, verified commands, architecture, key flows, conventions. Use for 'explain this codebase'."
 ---
 
 # Codebase onboarding

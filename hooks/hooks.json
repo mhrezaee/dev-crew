@@ -1,0 +1,44 @@
+{
+  "description": "dev-crew guardrails: deny catastrophic shell commands, ask before destructive or publishing commands and before writing secrets, and add evidence rules at session start. Disable with DEV_CREW_GUARD=off / DEV_CREW_SESSION_RULES=off.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/session-rules.js"],
+            "timeout": 10,
+            "onFailure": "continue"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/guard-shell.js"],
+            "timeout": 10,
+            "onFailure": "continue"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/guard-secrets.js"],
+            "timeout": 10,
+            "onFailure": "continue"
+          }
+        ]
+      }
+    ]
+  }
+}

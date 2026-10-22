@@ -1,6 +1,6 @@
 ---
 name: bdd
-description: Behaviour-Driven Development end to end - discovery with three amigos and example mapping, formulating Gherkin feature files that read as living documentation, and automating them with Reqnroll/SpecFlow, Cucumber (JVM/JS), behave/pytest-bdd, godog or Flutter gherkin. Use when the user mentions BDD, Gherkin, feature files, Cucumber, SpecFlow/Reqnroll, three amigos, example mapping, or when business rules need executable specifications.
+description: "BDD: example mapping, declarative Gherkin and automation with Reqnroll, Cucumber, behave, pytest-bdd or godog. Use for Gherkin or feature files."
 ---
 
 # Behaviour-Driven Development

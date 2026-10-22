@@ -5,3 +5,5 @@ __pycache__/
 .vscode/
 .idea/
 .claude/settings.local.json
+evals/results/
+node_modules/

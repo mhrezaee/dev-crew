@@ -1,6 +1,6 @@
 ---
 name: tdd-workflow
-description: Implement features or fixes with strict Test-Driven Development (red-green-refactor), one behaviour at a time. Use when the user asks for TDD, "test first", or when implementing well-specified business logic, algorithms, parsers, validators or bug fixes.
+description: "Strict red-green-refactor TDD, one behaviour at a time. Use when asked for TDD or for well-specified logic and bug fixes."
 ---
 
 # TDD workflow

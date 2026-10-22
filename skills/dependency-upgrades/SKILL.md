@@ -1,6 +1,6 @@
 ---
 name: dependency-upgrades
-description: Safely upgrade dependencies, frameworks and runtimes (e.g. .NET 8->9, Node 20->22, Spring Boot 2->3, React 18->19, Angular, Flutter, Python) - audit outdated/vulnerable packages, read changelogs for breaking changes, upgrade incrementally and verify. Use when updating packages, fixing vulnerable dependencies, or migrating major framework versions.
+description: "Audit and upgrade dependencies and frameworks safely, one major version at a time. Use for package updates or vulnerable deps."
 ---
 
 # Dependency upgrades

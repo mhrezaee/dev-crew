@@ -1,6 +1,6 @@
 ---
 name: design-patterns
-description: Choose and apply the right design pattern for a concrete problem - GoF creational/structural/behavioural patterns, enterprise and integration patterns, functional alternatives - with a problem-to-pattern selection guide and over-engineering warnings. Use when code has a recurring design problem (variation, object creation, cross-cutting behaviour, complex conditionals, integration), when the user asks "which pattern", or during design/refactoring.
+description: "Pick GoF/enterprise patterns by concrete problem, with modern alternatives and over-engineering warnings. Use when choosing a pattern."
 ---
 
 # Design patterns - choose by problem, not by name

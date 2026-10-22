@@ -1,6 +1,6 @@
 ---
 name: domain-driven-design
-description: Apply Domain-Driven Design - strategic (subdomains, bounded contexts, ubiquitous language, context mapping, event storming) and tactical (aggregates, entities, value objects, domain events, repositories, domain services, specifications) - with rules for aggregate design and code examples. Use when modelling a complex business domain, defining module/service boundaries, designing aggregates, or when the user mentions DDD, bounded context, aggregate, or event storming.
+description: "DDD strategic (bounded contexts, context maps, event storming) and tactical (aggregates, value objects, events). Use when modelling complex domains."
 ---
 
 # Domain-Driven Design

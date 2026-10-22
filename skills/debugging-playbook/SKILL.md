@@ -1,6 +1,6 @@
 ---
 name: debugging-playbook
-description: A systematic debugging playbook - reproduce, isolate, hypothesise, verify, fix, prevent - with technique-specific tips for stack traces, intermittent failures, git bisect, memory leaks, deadlocks and "works on my machine" issues. Use when investigating any bug, exception, failing test or unexpected behaviour.
+description: "Systematic debugging: reproduce, bisect, hypothesise, verify, fix root cause. Use for bugs, exceptions and failing tests."
 ---
 
 # Debugging playbook

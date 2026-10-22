@@ -1,6 +1,6 @@
 ---
 name: architecture-selection
-description: Decide the right architecture for a project from its actual drivers - system topology (monolith, modular monolith, microservices, serverless, event-driven), code architecture (layered, vertical slice, clean/hexagonal/onion, DDD, CQRS, event sourcing), frontend architecture and testing approach (TDD, BDD, contract tests) - and produce an Architecture Blueprint with ADRs and fitness functions. Use when starting a new project, when asked "which architecture should we use", "should we use microservices/DDD/clean architecture", or when an existing system's architecture no longer fits.
+description: "Score 11 project drivers and choose topology, code architecture, DDD, CQRS, patterns and testing approach; output a blueprint. Use for 'which architecture should we use'."
 ---
 
 # Architecture selection

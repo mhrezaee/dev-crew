@@ -1,6 +1,6 @@
 ---
 name: git-workflow
-description: Git conventions for daily work - branch naming, Conventional Commits messages, atomic commits, rebasing, resolving conflicts, and writing great pull request descriptions. Use when committing, naming a branch, writing a commit message or PR description, squashing/rebasing, or resolving merge conflicts.
+description: "Branch names, Conventional Commits, rebasing, conflicts and PR descriptions. Use when committing or preparing a PR."
 ---
 
 # Git workflow

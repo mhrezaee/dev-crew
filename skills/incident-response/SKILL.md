@@ -1,6 +1,6 @@
 ---
 name: incident-response
-description: Guide production incident handling - triage, severity, mitigation-first response, stakeholder updates - and write blameless postmortems with timeline, root cause (5 whys) and action items. Use during an outage or production bug, or when the user asks for an incident report, postmortem, RCA or status update.
+description: "Incident triage, mitigation-first response, status updates and blameless postmortems. Use during or after outages."
 ---
 
 # Incident response

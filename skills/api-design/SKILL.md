@@ -1,6 +1,6 @@
 ---
 name: api-design
-description: Design or review REST/HTTP (and GraphQL/gRPC basics) APIs - resource naming, methods, status codes, error format, pagination, filtering, versioning, idempotency and OpenAPI specs. Use when adding or changing endpoints, writing an OpenAPI spec, or reviewing an API contract.
+description: "REST/HTTP API conventions: naming, status codes, RFC 9457 errors, pagination, versioning, idempotency, OpenAPI. Use when adding or reviewing endpoints."
 ---
 
 # API design guidelines

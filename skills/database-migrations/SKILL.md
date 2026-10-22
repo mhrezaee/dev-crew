@@ -1,6 +1,6 @@
 ---
 name: database-migrations
-description: Write safe, zero-downtime, reversible database schema and data migrations using the expand-migrate-contract pattern, with lock-aware guidance for PostgreSQL, SQL Server and MySQL. Use when adding/renaming/dropping columns or tables, adding indexes or constraints, backfilling data, or reviewing a migration.
+description: "Zero-downtime expand/migrate/contract migrations with lock-aware tactics. Use when changing schema or backfilling data."
 ---
 
 # Database migrations

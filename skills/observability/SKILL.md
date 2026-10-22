@@ -1,6 +1,6 @@
 ---
 name: observability
-description: Add production-grade observability - structured logging, metrics (RED/USE), distributed tracing with OpenTelemetry, health checks, SLOs and actionable alerts. Use when adding a new service/endpoint/job, when an incident was hard to diagnose, or when the user asks about logging, monitoring, tracing, dashboards or alerts.
+description: "Structured logs, RED/USE metrics, OpenTelemetry tracing, SLO burn-rate alerts. Use for new services or hard-to-diagnose issues."
 ---
 
 # Observability

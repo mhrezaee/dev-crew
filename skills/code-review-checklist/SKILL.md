@@ -1,6 +1,6 @@
 ---
 name: code-review-checklist
-description: A comprehensive, prioritised code review checklist and comment etiquette for reviewing diffs and pull requests. Use when reviewing code, self-reviewing before a commit/PR, or when the user asks "review this", "check my changes", or "is this PR ready".
+description: "Prioritised review checklist (correctness, security, tests, design, performance) and comment etiquette. Use when reviewing code."
 ---
 
 # Code review checklist

@@ -1,6 +1,6 @@
 ---
 name: docker-best-practices
-description: Write small, secure, fast-building Dockerfiles and docker-compose setups - multi-stage builds, layer caching, non-root users, pinned base images, health checks and local dev environments. Use when containerising an app, reviewing a Dockerfile, shrinking images, or setting up docker-compose for local development.
+description: "Small, secure Dockerfiles (multi-stage, non-root, pinned) and docker-compose for dev. Use when containerising."
 ---
 
 # Docker best practices

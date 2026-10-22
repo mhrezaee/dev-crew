@@ -1,6 +1,6 @@
 ---
 name: clean-code
-description: Practical clean-code and design principles - naming, function design, SOLID applied pragmatically, coupling/cohesion, immutability, and when NOT to abstract. Use when writing new code, reviewing readability, or deciding on class/module structure.
+description: "Naming, function design, pragmatic SOLID and when not to abstract. Use when writing or reviewing code structure."
 ---
 
 # Clean code (pragmatic edition)

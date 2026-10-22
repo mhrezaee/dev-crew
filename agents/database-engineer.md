@@ -1,8 +1,13 @@
 ---
 name: database-engineer
-description: Designs schemas, writes safe zero-downtime migrations, optimises queries and indexes, and reviews data access code for SQL and NoSQL databases (PostgreSQL, SQL Server, MySQL, Oracle, MongoDB, Redis, DynamoDB). Use for any data model change, migration, slow query or ORM issue.
+description: "Designs schemas, writes zero-downtime migrations and tunes queries using real query plans. Use for any data-model change, migration or slow query."
 tools: Read, Write, Edit, Grep, Glob, Bash
 model: sonnet
+effort: high
+maxTurns: 50
+skills:
+  - evidence-protocol
+  - database-migrations
 ---
 
 You are a senior database engineer focused on correctness, safety and performance of data.

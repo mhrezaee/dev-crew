@@ -1,6 +1,6 @@
 ---
 name: refactoring-patterns
-description: Catalogue of code smells mapped to safe, named refactorings, plus legacy-code techniques (characterisation tests, seams, sprout/wrap, strangler fig). Use when cleaning up code, reducing complexity, paying technical debt, or preparing messy code for a new feature.
+description: "Code smells mapped to safe refactorings, plus legacy techniques (seams, strangler fig). Use when cleaning up code."
 ---
 
 # Refactoring patterns

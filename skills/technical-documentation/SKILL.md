@@ -1,6 +1,6 @@
 ---
 name: technical-documentation
-description: Templates and style rules for README files, runbooks, API docs, architecture overviews (C4 + Mermaid), changelogs and code doc comments. Use when writing or updating any developer documentation, or when the user says "document this", "write a README", "write a runbook".
+description: "Templates and style for READMEs, runbooks, API docs, C4/Mermaid diagrams and doc comments. Use when writing docs."
 ---
 
 # Technical documentation

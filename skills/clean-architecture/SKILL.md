@@ -1,6 +1,6 @@
 ---
 name: clean-architecture
-description: Implement and enforce Clean Architecture, Hexagonal (ports & adapters), Onion and Vertical Slice architectures - dependency rule, layer responsibilities, folder/project structures per stack (.NET, Java/Spring, TypeScript/Node, Python, Go, Flutter), mapping strategy and architecture tests. Use when structuring a new service/app, adding code to a clean/hexagonal codebase, or fixing layer violations.
+description: "Clean, hexagonal, onion and vertical-slice structures per stack, the dependency rule and architecture tests. Use when structuring or fixing layers."
 ---
 
 # Clean / Hexagonal / Vertical Slice architecture

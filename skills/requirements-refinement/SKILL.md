@@ -1,6 +1,6 @@
 ---
 name: requirements-refinement
-description: Refine a raw feature request, ticket or idea into a ready-to-build requirement with user stories, Gherkin acceptance criteria, NFRs and a Definition-of-Ready score. Use when the user pastes a ticket, says "refine this", "write user stories", "acceptance criteria", "is this ready", or describes a feature vaguely.
+description: "Refine a ticket into INVEST user stories, Gherkin acceptance criteria and a Definition-of-Ready score. Use for unclear features or 'write user stories'."
 ---
 
 # Requirements refinement

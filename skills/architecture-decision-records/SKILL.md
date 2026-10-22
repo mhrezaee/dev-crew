@@ -1,6 +1,6 @@
 ---
 name: architecture-decision-records
-description: Write or update Architecture Decision Records (ADRs) capturing context, options, decision and consequences. Use when choosing a framework, library, database, pattern, API style, or any decision that is expensive to reverse, or when the user says "ADR", "document this decision", or "why did we choose".
+description: "Write ADRs (context, options, decision, consequences). Use for decisions that are expensive to reverse."
 ---
 
 # Architecture Decision Records

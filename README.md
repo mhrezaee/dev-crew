@@ -4,8 +4,8 @@
 
 ### A complete AI software engineering team for Claude Code
 
-**16 specialist subagents · 27 engineering skills · 18 workflow commands**
-The whole SDLC, from a vague ticket to a tagged release.
+**16 specialist subagents · 28 engineering skills · 18 workflow commands · guardrail hooks**
+The whole SDLC, from a vague ticket to a tagged release. Evidence-based, guarded and lean on tokens.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Validate](https://github.com/mhrezaee/dev-crew/actions/workflows/validate.yml/badge.svg)](https://github.com/mhrezaee/dev-crew/actions/workflows/validate.yml)
@@ -28,6 +28,8 @@ Claude Code is great at writing code. Software engineering is more than writing 
 - ✅ **Tests and reviews by default**, not as an afterthought
 - ✅ **Security, performance and operability** built in
 - ✅ **Language-agnostic**: .NET, Java/Kotlin, TypeScript, Python, Go, Rust, Flutter, Swift and more. Every agent follows *your* codebase's conventions first
+- ✅ **Trustable**: answers cite `file:line`, nothing is called "passing" until it ran, and guardrail hooks stop destructive commands and leaked secrets
+- ✅ **Lean**: about 2.7k tokens of always-on context; the 18 workflows cost nothing until you type them
 
 ## ⚡ Quick start
 
@@ -50,6 +52,8 @@ cd dev-crew
 ```
 
 Use `--project` / `-Project` to install into the current repository's `.claude/` folder instead, so the whole team gets it via git.
+
+> The guardrail hooks are only active with the **plugin** install (Option 1). The scripts copy agents and skills only.
 
 ### Try it
 
@@ -97,31 +101,32 @@ From then on, `/feature`, `tech-lead`, `code-reviewer` and `test-engineer` all f
 
 ## 👥 The crew (subagents)
 
-| Agent | Role | Model |
+| Agent | Role | Model · effort |
 |---|---|---|
-| `product-analyst` | Turns vague requests into user stories + Gherkin acceptance criteria with a readiness score | sonnet |
-| `solution-architect` | Picks the right architecture from your project's drivers, writes the Architecture Blueprint + ADRs, designs features to fit it | opus |
-| `architecture-reviewer` | Finds boundary violations, cycles, misplaced logic and over-engineering, then plans the fix | opus |
-| `tech-lead` | Ordered, file-level implementation plan with risks | opus |
-| `backend-engineer` | APIs, services, jobs, integrations, with tests | sonnet |
-| `frontend-engineer` | UI/mobile with all states, a11y, i18n, responsiveness | sonnet |
-| `database-engineer` | Schemas, zero-downtime migrations, query tuning | sonnet |
-| `devops-engineer` | CI/CD, Docker, Kubernetes, IaC, observability | sonnet |
-| `test-engineer` | Unit/integration/e2e tests, flaky-test triage | sonnet |
-| `code-reviewer` | Prioritised, verified review findings with fixes | opus |
-| `security-auditor` | OWASP, secrets, dependencies, infra misconfig | opus |
-| `debugger` | Reproduce → root cause → regression test → minimal fix | opus |
-| `performance-engineer` | Measure-first optimisation with before/after numbers | opus |
-| `refactoring-specialist` | Behaviour-preserving refactoring in safe steps | opus |
-| `docs-writer` | READMEs, runbooks, API docs, CLAUDE.md, verified against code | sonnet |
-| `release-manager` | SemVer, changelog, release notes, release checklist | sonnet |
+| `product-analyst` | Turns vague requests into user stories + Gherkin acceptance criteria with a readiness score | sonnet · medium |
+| `solution-architect` | Picks the right architecture from your project's drivers, writes the Architecture Blueprint + ADRs, designs features to fit it | opus · high |
+| `architecture-reviewer` | Finds boundary violations, cycles, misplaced logic and over-engineering, then plans the fix | opus · high |
+| `tech-lead` | Ordered, file-level implementation plan with risks | opus · medium |
+| `backend-engineer` | APIs, services, jobs, integrations, with tests | sonnet · medium |
+| `frontend-engineer` | UI/mobile with all states, a11y, i18n, responsiveness | sonnet · medium |
+| `database-engineer` | Schemas, zero-downtime migrations, query tuning | sonnet · high |
+| `devops-engineer` | CI/CD, Docker, Kubernetes, IaC, observability | sonnet · medium |
+| `test-engineer` | Unit/integration/e2e tests, flaky-test triage | sonnet · medium |
+| `code-reviewer` | Prioritised findings, each re-checked and backed by a failure scenario | opus · high |
+| `security-auditor` | OWASP, secrets, dependencies, infra misconfig, with each finding marked VERIFIED or ASSUMPTION | opus · high |
+| `debugger` | Reproduce → root cause → regression test → minimal fix | opus · high |
+| `performance-engineer` | Measure-first optimisation with before/after numbers | opus · high |
+| `refactoring-specialist` | Behaviour-preserving refactoring in safe steps | opus · medium |
+| `docs-writer` | READMEs, runbooks, API docs, CLAUDE.md, verified against code | sonnet · low |
+| `release-manager` | SemVer, changelog, release notes, release checklist | haiku · low |
 
-Claude delegates to them automatically when a task matches, or you can ask directly: *"use the security-auditor on src/auth"*.
+Claude delegates to them automatically when a task matches, or you can ask directly: *"use the security-auditor on src/auth"*. Each agent **preloads** the skills it needs (for example `code-reviewer` gets the review checklist and secure-coding rules), so it starts with the right knowledge and needs no extra lookups. Each also has a `maxTurns` limit, so a runaway loop can't burn your budget.
 
 ## 🧠 Skills (loaded on demand)
 
 | Phase | Skills |
 |---|---|
+| Trust | `evidence-protocol`: preloaded into every agent (cite file:line, verify before claiming, label assumptions) |
 | Requirements | `requirements-refinement`, `bdd` |
 | Architecture | `architecture-selection`, `domain-driven-design`, `clean-architecture`, `microservices-patterns`, `design-patterns`, `architecture-decision-records`, `api-design` |
 | Build | `clean-code`, `error-handling`, `secure-coding`, `database-migrations` |
@@ -141,7 +146,7 @@ Skills use progressive disclosure: only their one-line description sits in conte
 | `/architect [vision]` | Choose the architecture for this project and write the Blueprint + ADRs (add `scaffold` to create the structure) |
 | `/architecture-review [path]` | Architecture health check with a step-by-step fix plan |
 | `/domain-model <domain>` | DDD session: event storming, bounded contexts, aggregates, glossary |
-| `/bdd <story>` | Example mapping → Gherkin feature → step definitions → run |
+| `/bdd-spec <story>` | Example mapping → Gherkin feature → step definitions → run |
 | `/design <topic>` | Options + recommendation + diagrams + ADR for a single change |
 | `/plan <task>` | Small ordered tasks with files, tests and "done when" |
 | `/fix-bug <error>` | Reproduce, root-cause, regression test, minimal fix, review |
@@ -155,30 +160,51 @@ Skills use progressive disclosure: only their one-line description sits in conte
 | `/postmortem <notes>` | Blameless postmortem with timeline, 5 whys, action items |
 | `/standup [since]` | Your stand-up update generated from git activity |
 
-> Installed as a plugin, commands may appear namespaced, e.g. `/dev-crew:feature`.
+> Commands are **manual-only skills** (`disable-model-invocation: true`): they add **zero** context until you type them. Installed as a plugin, they may appear namespaced, e.g. `/dev-crew:feature`.
 
 ## 🧩 Customise for your company
 
 1. Copy [`templates/CLAUDE.md`](templates/CLAUDE.md) into your repo and fill it in. Every agent reads your conventions first.
 2. Fork and edit any agent or skill. They're plain Markdown.
 3. Add company-specific skills (e.g. `skills/our-api-guidelines/SKILL.md`) and they get picked up automatically.
-4. Change `model:` in an agent's frontmatter to balance cost and depth.
+4. Tune `model`, `effort` and `maxTurns` in an agent's frontmatter to balance cost and depth. `python scripts/validate.py` catches typos.
 
-## 🛡️ Safety by design
+## 🛡️ Built to be trusted
 
-- Agents **never** commit, push, tag, publish or force-push without your explicit confirmation.
-- Reviewers and auditors are read-only (`tools:` restricted).
-- Secrets found during audits are masked in output.
+Prompts ask Claude to behave. dev-crew also adds checks that **don't depend on the model**:
+
+| Layer | What it does |
+|---|---|
+| **Guardrail hooks** | Run before every shell command and file write. **Deny** catastrophic commands (`rm -rf /`, `mkfs`, `dd` onto disks...). **Ask you first** before force pushes, `git reset --hard`, `terraform destroy`, `kubectl delete`, `DROP TABLE`, package publishing, `curl \| sh`, and before an API key or private key is written into a source file. Covered by 70+ tests and confirmed in real Claude Code sessions |
+| **Evidence protocol** | Every agent cites `file:line`, says "tests pass" only after running them (quoting the result), and labels claims VERIFIED / ASSUMPTION / UNKNOWN. The same rules are added to your main session at startup (~100 tokens) |
+| **Second-look reviews** | `code-reviewer` and `security-auditor` try to disprove each finding before reporting it, and keep only those with a concrete failure scenario. Fewer false alarms |
+| **Least privilege** | Reviewers, auditors, architects and planners have no Write/Edit tools |
+| **Evals** | [`evals/`](evals/) runs real cases **with and without dev-crew** via `claude plugin eval` and reports the difference: bug detection, SQL injection, architecture fit, YAGNI push-back, honest verification |
+| **Validator in CI** | Fails the build on frontmatter typos (which Claude Code silently ignores), name collisions, invalid preloads, broken hook paths, or an always-on context budget overrun |
+
+No network calls, no telemetry, no dependencies. Details and opt-outs (`DEV_CREW_GUARD=off`) are in [SECURITY.md](SECURITY.md).
+
+## ⚡ Lean on tokens
+
+| | v1.1 | v1.2 |
+|---|---|---|
+| Always-on context per session | ~5,970 tokens | **~2,700 tokens** (−55%) |
+| Workflow commands in context | all 18 descriptions | **0** until invoked |
+| Cheap jobs (`/standup`, `release-manager`) | default model | **Haiku, low effort** |
+| Runaway agent loops | unlimited | `maxTurns` on every agent |
+
+Measure it yourself: `claude plugin details dev-crew`. That command's estimate also counts manual-only skills, which the model never sees.
 
 ## 📁 Repository layout
 
 ```
 .claude-plugin/   plugin.json + marketplace.json
 agents/           16 subagents
-skills/           27 skills (one folder each, SKILL.md)
-commands/         18 slash commands
+skills/           28 knowledge skills + 18 workflow commands (one folder each, SKILL.md)
+hooks/            guardrail + session-rules hooks (Node, no dependencies) and their tests
+evals/            behavioural eval suite for `claude plugin eval`
 templates/        CLAUDE.md template
-scripts/          validate.py: frontmatter linter used in CI
+scripts/          validate.py: structure, frontmatter and token-budget checks used in CI
 install.sh / install.ps1
 ```
 
