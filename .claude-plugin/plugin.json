@@ -1,0 +1,13 @@
+{
+  "name": "dev-crew",
+  "version": "1.0.0",
+  "description": "A full software engineering team for Claude Code: 15 specialist subagents, 21 engineering skills and 14 workflow commands covering the whole SDLC - from requirements to release.",
+  "author": {
+    "name": "Hadi Rezaee",
+    "url": "https://github.com/mhrezaee"
+  },
+  "homepage": "https://github.com/mhrezaee/dev-crew",
+  "repository": "https://github.com/mhrezaee/dev-crew",
+  "license": "MIT",
+  "keywords": ["sdlc", "agents", "subagents", "skills", "code-review", "tdd", "devops", "software-engineering"]
+}

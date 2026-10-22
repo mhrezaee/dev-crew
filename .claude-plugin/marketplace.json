@@ -1,0 +1,21 @@
+{
+  "name": "dev-crew",
+  "owner": {
+    "name": "Hadi Rezaee",
+    "url": "https://github.com/mhrezaee"
+  },
+  "metadata": {
+    "description": "Your AI software engineering team for Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "dev-crew",
+      "source": "./",
+      "description": "15 specialist subagents, 21 engineering skills and 14 workflow commands covering the whole SDLC.",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["sdlc", "agents", "skills", "workflow"]
+    }
+  ]
+}
