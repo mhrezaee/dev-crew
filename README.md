@@ -4,7 +4,7 @@
 
 ### A complete AI software engineering team for Claude Code
 
-**15 specialist subagents · 21 engineering skills · 14 workflow commands**
+**16 specialist subagents · 27 engineering skills · 18 workflow commands**
 The whole SDLC, from a vague ticket to a tagged release.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -55,6 +55,7 @@ Use `--project` / `-Project` to install into the current repository's `.claude/`
 
 ```
 /onboard                         # understand the repo you're in
+/architect                       # choose the right architecture, write blueprint + ADRs
 /feature Users can export their bookings as CSV
 /fix-bug NullReferenceException in InvoiceService.Calculate when discount is null
 /review-code main
@@ -66,17 +67,41 @@ Use `--project` / `-Project` to install into the current repository's `.claude/`
 
 ```mermaid
 flowchart LR
+  Z[/architect/] --> A
   A[/refine/] --> B[/design/] --> C[/plan/] --> D[implement] --> E[/test/] --> F[/review-code/] --> G[/ship/] --> H[/release/]
   H -. incident .-> I[/postmortem/]
   I -. learnings .-> A
 ```
+
+## 🏛️ An architect that decides, not just suggests
+
+Run `/architect` and the `solution-architect` works like a senior architect would. It never picks microservices or DDD because they're trendy.
+
+1. **Collects evidence** from your code (or your product vision) and asks at most 5 questions.
+2. **Scores 11 drivers**: domain complexity, team scale, deployability, scale heterogeneity, ops maturity, consistency, integration intensity, read/write asymmetry, audit needs, uncertainty, workload shape.
+3. **Decides at every level**, with the rejected alternatives written down:
+
+| Level | Options it chooses between |
+|---|---|
+| System | Modular monolith (default) · layered monolith · microservices · serverless · event-driven |
+| Domain | DDD strategic design: subdomains, bounded contexts, context map |
+| Code | Layered · vertical slice · clean / hexagonal / onion · DDD tactical (core domain only) · CQRS · event sourcing |
+| Integration | REST/gRPC · messaging · sagas · outbox/inbox · BFF · API gateway |
+| Patterns | GoF + enterprise patterns, **only where a concrete force exists** |
+| Practice | TDD · BDD · contract testing · architecture fitness functions |
+
+4. **Checks for red flags** (distributed monolith, DDD ceremony in CRUD code, event sourcing "for flexibility", big-bang rewrites).
+5. **Writes** `docs/architecture/blueprint.md` and ADRs, and **enforces the boundaries** with architecture tests (ArchUnit, NetArchTest, dependency-cruiser, import-linter...).
+
+From then on, `/feature`, `tech-lead`, `code-reviewer` and `test-engineer` all follow the blueprint, so the architecture doesn't erode.
 
 ## 👥 The crew (subagents)
 
 | Agent | Role | Model |
 |---|---|---|
 | `product-analyst` | Turns vague requests into user stories + Gherkin acceptance criteria with a readiness score | sonnet |
-| `solution-architect` | Options, trade-offs, diagrams, API/data design, ADRs | opus |
+| `solution-architect` | Picks the right architecture from your project's drivers, writes the Architecture Blueprint + ADRs, designs features to fit it | opus |
+| `architecture-reviewer` | Finds boundary violations, cycles, misplaced logic and over-engineering, then plans the fix | opus |
 | `tech-lead` | Ordered, file-level implementation plan with risks | opus |
 | `backend-engineer` | APIs, services, jobs, integrations, with tests | sonnet |
 | `frontend-engineer` | UI/mobile with all states, a11y, i18n, responsiveness | sonnet |
@@ -97,7 +122,8 @@ Claude delegates to them automatically when a task matches, or you can ask direc
 
 | Phase | Skills |
 |---|---|
-| Requirements & design | `requirements-refinement`, `architecture-decision-records`, `api-design` |
+| Requirements | `requirements-refinement`, `bdd` |
+| Architecture | `architecture-selection`, `domain-driven-design`, `clean-architecture`, `microservices-patterns`, `design-patterns`, `architecture-decision-records`, `api-design` |
 | Build | `clean-code`, `error-handling`, `secure-coding`, `database-migrations` |
 | Test | `tdd-workflow`, `writing-tests` |
 | Review & debug | `code-review-checklist`, `debugging-playbook`, `refactoring-patterns`, `performance-optimization` |
@@ -112,7 +138,11 @@ Skills use progressive disclosure: only their one-line description sits in conte
 |---|---|
 | `/feature <ticket>` | Full pipeline: refine → design → plan → implement → test → review, with checkpoints |
 | `/refine <idea>` | Ticket → user stories, acceptance criteria, open questions, readiness score |
-| `/design <topic>` | Options + recommendation + diagrams + ADR |
+| `/architect [vision]` | Choose the architecture for this project and write the Blueprint + ADRs (add `scaffold` to create the structure) |
+| `/architecture-review [path]` | Architecture health check with a step-by-step fix plan |
+| `/domain-model <domain>` | DDD session: event storming, bounded contexts, aggregates, glossary |
+| `/bdd <story>` | Example mapping → Gherkin feature → step definitions → run |
+| `/design <topic>` | Options + recommendation + diagrams + ADR for a single change |
 | `/plan <task>` | Small ordered tasks with files, tests and "done when" |
 | `/fix-bug <error>` | Reproduce, root-cause, regression test, minimal fix, review |
 | `/test [path]` | Fill test gaps for a module or your current changes |
@@ -144,9 +174,9 @@ Skills use progressive disclosure: only their one-line description sits in conte
 
 ```
 .claude-plugin/   plugin.json + marketplace.json
-agents/           15 subagents
-skills/           21 skills (one folder each, SKILL.md)
-commands/         14 slash commands
+agents/           16 subagents
+skills/           27 skills (one folder each, SKILL.md)
+commands/         18 slash commands
 templates/        CLAUDE.md template
 scripts/          validate.py: frontmatter linter used in CI
 install.sh / install.ps1
