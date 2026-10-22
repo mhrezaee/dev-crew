@@ -7,6 +7,8 @@ description: "Distributed and event-driven patterns: sagas, outbox/inbox, idempo
 
 > First confirm microservices are justified (see `architecture-selection`). Most of these patterns also apply to a modular monolith that publishes events.
 
+**Full reference**: `references/cloud-patterns.md` has problem, solution, use-when, watch-outs and related patterns for API Gateway, gateway routing/aggregation/offloading, Federated Identity, Ambassador, Sidecar, Service Mesh, Retry, Circuit Breaker, Bulkhead, Timeout/Fallback, Throttling, Health Endpoints, Saga, Outbox, Inbox, Cache-Aside, Materialised View, Sharding, Compensating Transaction, Claim Check, Valet Key, Gatekeeper, Competing Consumers, Queue-based Load Levelling, Priority Queue, Scheduler Agent Supervisor, Leader Election, Strangler Fig, Anti-Corruption Layer, Deployment Stamps, Blue-Green/Canary and Static Content Hosting. It ends with a symptom → pattern guide.
+
 ## Decomposition
 - Decompose by **business capability / bounded context**, never by technical layer (no "database service", "validation service").
 - A service owns its data; no other service reads its tables.

@@ -99,6 +99,29 @@ Run `/architect` and the `solution-architect` works like a senior architect woul
 
 From then on, `/feature`, `tech-lead`, `code-reviewer` and `test-engineer` all follow the blueprint, so the architecture doesn't erode.
 
+### 📚 Complete pattern knowledge, checked in CI
+
+The architect and the lead developer (`tech-lead`) decide from full reference catalogues. Each entry gives **intent, use-when forces, avoid-when, trade-offs, the modern idiomatic form and related patterns**. Catalogues load only when needed, so they add **zero always-on tokens**.
+
+| Area | Covered |
+|---|---|
+| **Design patterns** | All **23 GoF**: Abstract Factory, Builder, Factory Method, Prototype, Singleton, Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy, Chain of Responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template Method, Visitor, plus a table of easily confused pairs |
+| **Architecture styles** | Monolith, Modular Monolith, Microservices, SOA, Serverless, Client-Server, P2P, Primary-Replica, Space-Based, Layered, Hexagonal, Onion, Clean, Microkernel, EDA, Pub/Sub, CQRS, Event Sourcing, Pipes & Filters, Broker. *Beyond*: Vertical Slice, Cell-based, Actor Model, Micro-frontends, Blackboard, Lambda/Kappa, Data Mesh, multi-tenancy models |
+| **UI** | MVC, MVP, MVVM, MVI, BFF. *Beyond*: Flux/Redux, BLoC, Elm/TCA, Feature-Sliced Design, rendering strategies (CSR/SSR/SSG/islands/RSC), offline-first |
+| **Cloud & resilience** | API Gateway, Circuit Breaker, Bulkhead, Sidecar, Strangler Fig, Saga, Outbox, Retry, Throttling, Ambassador, Cache-Aside, Federated Identity. *Beyond*: Inbox, Service Mesh, Valet Key, Claim Check, Leader Election, Sharding, Competing Consumers, Deployment Stamps, Blue-Green/Canary and more |
+| **Methodologies & paradigms** | DDD, TDD, BDD, GitOps, DevOps, OOP, FP, Reactive, Twelve-Factor. *Beyond*: Event Storming, Contract-first, Continuous Delivery, DevSecOps, SRE, Platform Engineering |
+| **Principles & laws** | SOLID, DRY, KISS, YAGNI, CAP, PACELC, Conway's Law, Law of Demeter, Fallacies of Distributed Computing. *Beyond*: Gall's, Hyrum's, Postel's, Brooks's, Amdahl's, Little's, Goodhart's laws, GRASP, Tell-Don't-Ask and more |
+
+**145 catalogue entries.** `scripts/check_coverage.py` fails CI if any listed item loses its entry or the entry becomes too thin.
+
+**How decisions are made.** Knowing patterns isn't the hard part; choosing well is. Both agents follow the same procedure:
+1. Name the **force**, with `file:line` evidence.
+2. Compare candidates, always including "no pattern" or "the simplest thing that works".
+3. Check each candidate's *avoid when*.
+4. Run a **trade-off check**: quality attributes, CAP/PACELC per data flow, the fallacies for every new network hop, Conway's law, KISS/YAGNI.
+5. Run a **pre-mortem**.
+6. Record `force → candidates → chosen → gained/sacrificed → rejected because → revisit when`.
+
 ## 👥 The crew (subagents)
 
 | Agent | Role | Model · effort |
@@ -106,7 +129,7 @@ From then on, `/feature`, `tech-lead`, `code-reviewer` and `test-engineer` all f
 | `product-analyst` | Turns vague requests into user stories + Gherkin acceptance criteria with a readiness score | sonnet · medium |
 | `solution-architect` | Picks the right architecture from your project's drivers, writes the Architecture Blueprint + ADRs, designs features to fit it | opus · high |
 | `architecture-reviewer` | Finds boundary violations, cycles, misplaced logic and over-engineering, then plans the fix | opus · high |
-| `tech-lead` | Ordered, file-level implementation plan with risks | opus · medium |
+| `tech-lead` | Lead developer: code-level design decisions (patterns, paradigms, principles) and an ordered, file-level plan with risks | opus · high |
 | `backend-engineer` | APIs, services, jobs, integrations, with tests | sonnet · medium |
 | `frontend-engineer` | UI/mobile with all states, a11y, i18n, responsiveness | sonnet · medium |
 | `database-engineer` | Schemas, zero-downtime migrations, query tuning | sonnet · high |

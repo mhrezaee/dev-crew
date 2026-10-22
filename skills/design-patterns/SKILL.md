@@ -5,6 +5,14 @@ description: "Pick GoF/enterprise patterns by concrete problem, with modern alte
 
 # Design patterns - choose by problem, not by name
 
+**Full reference**: `references/gof-catalog.md` covers all 23 GoF patterns with intent, use-when forces, avoid-when, trade-offs, modern form, related patterns and a table of easily confused pairs. Read the entries for your candidates before recommending one. Short before/after code is in `references/pattern-examples.md`.
+
+## Decision procedure
+1. **Name the force** with evidence (`file:line`): what is hard to change, test or extend *today*?
+2. **List 2-3 candidates**, always including "no pattern / simplest idiomatic code".
+3. **Check each candidate's "avoid when"** in the catalogue, and the confusable pairs.
+4. **Choose** and record: force → pattern → where → cost → simpler alternative rejected because → when to remove it.
+
 ## Rules
 1. Start from a **concrete force** in the code (duplication, conditional explosion, hard-to-test dependency, varying algorithm). No force -> no pattern.
 2. Prefer the language's idiomatic feature first (lambdas/delegates, higher-order functions, sealed types + pattern matching, DI container, middleware) - many GoF patterns are one-liners in modern languages.
@@ -19,8 +27,14 @@ description: "Pick GoF/enterprise patterns by concrete problem, with modern alte
 | Need to add behaviour (logging, caching, retry, auth) around calls without changing them | **Decorator**, Proxy | middleware/pipeline behaviours, interceptors, AOP |
 | Request must pass through a sequence of handlers/checks | **Chain of Responsibility** | middleware pipeline, validators list |
 | Complex object construction with many optional parts | **Builder** | named/optional params, records with `with` |
-| Which concrete class to create depends on input/config | **Factory Method / Abstract Factory** | DI container + keyed services; factory function |
+| Which concrete class to create depends on input/config | **Factory Method** | DI container + keyed services; factory function |
+| Several related objects must vary together as a consistent family (per platform, cloud, tenant) | **Abstract Factory** | one DI module per family |
+| Creating objects is expensive or they're configured at runtime and need copies | **Prototype** | immutable records + `with`/`copy()`, `structuredClone` |
+| Two independent dimensions of variation would multiply classes (message type × channel) | **Bridge** | composition: inject the implementation interface |
 | Incompatible interface of a third-party/legacy API | **Adapter** | - (essential in hexagonal adapters) |
+| Control access to an object: lazy loading, remote call, permission check, caching | **Proxy** | generated clients, ORM lazy proxies, JS `Proxy` |
+| A small, stable rule or query language (filters, pricing formulas, targeting rules) | **Interpreter** | AST of sealed types + evaluator; CEL, JSONLogic or an expression engine |
+| Traverse a custom collection, paginated API or lazy stream | **Iterator** | language iterators: `yield`, generators, async iterators |
 | Simplify a complex subsystem for callers | **Facade** | - |
 | Notify many parties when something happens | **Observer** | events/delegates, reactive streams, domain events + mediator |
 | Encapsulate an action to queue, log, undo or retry | **Command** | command objects with handlers (CQRS), message |

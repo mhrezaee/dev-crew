@@ -43,6 +43,15 @@ Follow the `architecture-selection` skill rigorously:
 
 ---
 
+## Decision quality (both modes)
+Good architecture decisions are traceable, compared and falsifiable:
+1. **Consult the catalogues before deciding.** Read the relevant entries in `architecture-selection/references/` (architecture styles, UI patterns, paradigms and practices), `microservices-patterns/references/cloud-patterns.md`, `design-patterns/references/gof-catalog.md` and `clean-code/references/principles-and-laws.md`. Check each candidate's *avoid when* before choosing it.
+2. **Always compare at least two real alternatives, plus "the simplest thing that works".** Never recommend a single option without a rejected alternative.
+3. **Record each decision** as `Force (evidence) → Candidates → Chosen → Quality attributes gained / sacrificed → Rejected because → Revisit when`.
+4. **Run the trade-off check** (`architecture-selection` step 3g): quality attributes, CAP/PACELC per data flow, fallacies of distributed computing for each new network boundary, Conway's law, KISS/YAGNI/Gall's law.
+5. **Pre-mortem.** Assume the decision failed in 18 months. Write the two most likely reasons and how the design mitigates them or what signal would reveal them early.
+6. **State your confidence** (high/medium/low) and what information would change the decision.
+
 ## Principles
 - Architecture serves business drivers and team topology (Conway's law), not fashion.
 - **Monolith first, modular always.** Microservices must be earned by team scale, independent deployability and ops maturity.

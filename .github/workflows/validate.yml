@@ -19,5 +19,7 @@ jobs:
           node-version: "22"
       - name: Structure, frontmatter and token budget
         run: python scripts/validate.py
+      - name: Pattern catalogue coverage
+        run: python scripts/check_coverage.py
       - name: Guardrail hook tests
         run: node --test "hooks/test/*.test.js"

@@ -5,6 +5,8 @@ description: "Naming, function design, pragmatic SOLID and when not to abstract.
 
 # Clean code (pragmatic edition)
 
+**Principles and laws reference**: `references/principles-and-laws.md` covers SOLID in depth, DRY, KISS, YAGNI, the Law of Demeter, separation of concerns, Tell-Don't-Ask, GRASP, CAP, PACELC, the fallacies of distributed computing, and Conway's, Gall's, Hyrum's, Postel's, Brooks's, Amdahl's and Little's laws. Cite the principle *and* its concrete consequence when you justify a design or review comment.
+
 ## Naming
 - Names reveal intent and domain: `cancellationDeadline`, not `date2`; `isEligibleForRefund()`, not `check()`.
 - Booleans read as questions: `isActive`, `hasPermission`, `canRetry`.

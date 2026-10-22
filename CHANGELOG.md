@@ -3,6 +3,26 @@
 All notable changes to this project are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: [SemVer](https://semver.org/).
 
+## [1.3.0] - 2026-10-22: complete pattern knowledge, better decisions
+
+### Added
+- **Reference catalogues (145 entries)**, loaded only on demand, so always-on context doesn't grow:
+  - `design-patterns/references/gof-catalog.md`: all 23 GoF patterns, plus confusable pairs
+  - `architecture-selection/references/architecture-styles.md`: 20 required styles + 8 more
+  - `architecture-selection/references/ui-patterns.md`: MVC, MVP, MVVM, MVI, BFF and modern UI patterns
+  - `architecture-selection/references/paradigms-and-practices.md`: DDD, TDD, BDD, DevOps, GitOps, Twelve-Factor, OOP, FP, Reactive and more
+  - `microservices-patterns/references/cloud-patterns.md`: 12 required cloud and resilience patterns + 20 more
+  - `clean-code/references/principles-and-laws.md`: SOLID, DRY, KISS, YAGNI, CAP, PACELC, Conway, Demeter, fallacies and more
+- `scripts/check_coverage.py` (runs in CI): all 78 required items must keep a substantive entry.
+- 4 decision-quality eval cases: undo/redo → Command, class explosion → Bridge, partner rule packs → Microkernel, lost events → Outbox.
+
+### Changed
+- `solution-architect`: a "decision quality" procedure that consults the catalogues, compares at least two alternatives plus the simplest option, runs a trade-off check (quality attributes, CAP/PACELC, fallacies, Conway, KISS/YAGNI), a pre-mortem and a confidence statement.
+- `tech-lead` is now the lead developer. It makes code-level design calls (patterns, paradigms, principles) recorded in a decision table, preloads `design-patterns` and `clean-code`, and runs at `effort: high`.
+- `architecture-selection`: decision rules for SOA, space-based, cell-based, P2P, microkernel, pipes and filters, interaction styles, UI patterns and practices, plus a trade-off step and a decision record format.
+- `design-patterns`: the problem → pattern table covers all 23 GoF patterns; added a 4-step decision procedure.
+- `frontend-engineer`: follows the framework's native presentation pattern and consults the UI catalogue.
+
 ## [1.2.0] - 2026-10-22: trustable and lean
 
 ### Added

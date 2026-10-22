@@ -12,6 +12,10 @@ Behavioural tests for the plugin, run with [`claude plugin eval`](https://code.c
 | `refine-vague-ticket` | Gherkin with failure paths, and open questions instead of invented rules |
 | `evidence-no-unverified-claims` | Never claims tests pass without running them |
 | `commit-message-conventional` | Conventional Commits subject plus the ticket reference |
+| `pattern-undo-redo` | Undo/redo with history leads to Command (+ Memento or inverse operations), without over-engineering |
+| `pattern-two-dimensions` | Message type × channel class explosion leads to Bridge / composition |
+| `architecture-plugin-extensibility` | Stable core + partner-built country rules leads to Microkernel with a versioned plug-in contract |
+| `distributed-lost-events` | Lost or phantom events (dual write) leads to a transactional outbox + idempotent consumers |
 
 All cases are **read-only** and carry their fixtures inline, so they need no `--scaffold`, no shell access and no WSL2 on Windows.
 
